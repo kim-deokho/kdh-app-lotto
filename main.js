@@ -2,10 +2,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const generateBtn = document.getElementById('generate-btn');
     const numbersDisplay = document.querySelector('.numbers-display');
     const analysisSection = document.getElementById('analysis-section');
+    const themeToggle = document.getElementById('theme-toggle');
 
     const oddEvenAnalysisEl = document.getElementById('odd-even-analysis');
     const sumAnalysisEl = document.getElementById('sum-analysis');
     const acAnalysisEl = document.getElementById('ac-analysis');
+
+    const applyTheme = (theme) => {
+        document.documentElement.setAttribute('data-theme', theme);
+        const isLight = theme === 'light';
+        themeToggle.textContent = isLight ? '다크 모드' : '화이트 모드';
+        themeToggle.setAttribute('aria-pressed', String(isLight));
+    };
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const initialTheme = savedTheme || (prefersLight ? 'light' : 'dark');
+    applyTheme(initialTheme);
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+        const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', nextTheme);
+        applyTheme(nextTheme);
+    });
 
     // Function to generate 6 unique random numbers between 1 and 45
     function generateLottoNumbers() {
