@@ -1,14 +1,55 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 추천 사이트</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <header class="hero">
+            <h1>로또 번호 추천</h1>
+            <p>분석을 통해 당첨 확률이 가장 낮은 번호를 추천해 드립니다.</p>
+        </header>
+
+        <main>
+            <section class="generator-section">
+                <div class="numbers-display">
+                    <div class="number-placeholder"></div>
+                    <div class="number-placeholder"></div>
+                    <div class="number-placeholder"></div>
+                    <div class="number-placeholder"></div>
+                    <div class="number-placeholder"></div>
+                    <div class="number-placeholder"></div>
+                </div>
+                <button id="generate-btn" class="generate-button">새 번호 생성</button>
+            </section>
+
+            <section id="analysis-section" class="analysis-section" style="display: none;">
+                <h2>분석 결과</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-card">
+                        <h3>핫/콜드 넘버</h3>
+                        <p id="hot-cold-analysis">시뮬레이션된 데이터에 따라, 이 번호들은 너무 인기가 많거나 적어 당첨 확률이 낮습니다.</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3>홀/짝 비율</h3>
+                        <p id="odd-even-analysis">-</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3>번호 합계</h3>
+                        <p id="sum-analysis">-</p>
+                    </div>
+                    <div class="analysis-card">
+                        <h3>AC (산술적 복잡도)</h3>
+                        <p id="ac-analysis">-</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="main.js" type="module"></script>
 </body>
 </html>
