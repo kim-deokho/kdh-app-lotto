@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const applyTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
         const isLight = theme === 'light';
-        themeToggle.textContent = isLight ? '다크 모드' : '화이트 모드';
+        themeToggle.textContent = isLight ? '다크 모드' : '라이트 모드';
         themeToggle.setAttribute('aria-pressed', String(isLight));
     };
 
